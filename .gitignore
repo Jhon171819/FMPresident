@@ -1,0 +1,26 @@
+# Dados pessoais, saves e históricos locais
+/dados/
+*.fm
+*.lnk
+*.sqlite
+*.sqlite3
+*.log
+
+# Compilações, ambientes e dependências instaladas
+/bin*/
+/build/
+/dist/
+/ferramentas/
+/engenharia_reversa/*
+!/engenharia_reversa/investigar_identidade.py
+!/engenharia_reversa/validar_sincronizacao.py
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Relatórios locais ainda não sanitizados para publicação
+/docs/arquitetura/AU-02-matriz-fontes.md
+/docs/auditoria/AU-01-integracao-fm23.md
+/docs/testes/AU-02-relatorio-testes.md
+/docs/testes/2026-11-01-backup-google-drive.md

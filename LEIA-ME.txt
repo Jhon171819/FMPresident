@@ -1,0 +1,43 @@
+FMPresidente — Ceará / FM23
+
+Abra a carreira no FM23 e execute o atalho FMPresidente da área de trabalho.
+Clique em Reconectar ao FM se o jogo tiver sido aberto depois do aplicativo.
+O atalho abre bin/FMPresidente.exe, com seu próprio runtime local.
+O guia completo do novo motor está em PATROCINIOS.md nesta pasta.
+O suporte atual foi validado no Windows, para FM23 23.2.0+1771058 e Ceará,
+ID 104749. O aplicativo reconhece tanto CEA quanto o nome real do Ceará.
+
+As decisões são gravadas nos dados reais da carreira em execução.
+Não é preciso copiar valores para o editor. O FM torna as mudanças
+permanentes quando salva a carreira. Use os controles com o jogo parado,
+fora de partidas, processamento e telas abertas do editor.
+
+Disponível: aporte de capital, orçamentos, contratos de patrocínio existentes,
+investimentos imediatos em infraestrutura, preços médios de bilheteria,
+contratação e renegociação de empréstimos financeiros, quitação e histórico para desfazer.
+Em Empréstimos > Contratar empréstimo, informe valor e prazo e solicite as condições.
+Digite a taxa anual desejada para negociar; confira a oferta e aceite para registrar
+o contrato e receber o crédito no caixa do FM. O guia está em EMPRESTIMOS.txt.
+Patrocínios: mercado com 50 marcas importadas e Samsung, ofertas,
+contrapropostas, termos fixos, prazo, exclusividade, preferência de renovação,
+multa e rescisão. A assinatura atualiza automaticamente a receita no FM.
+
+Negociações e custos de melhorias são regras do FMPresidente. O app registra
+o contrato no FM e o jogo administra seus recebimentos. O valor negociado
+é anual; o valor gravado no contrato é o total de toda a vigência.
+
+Uniformes 2D/3D são instalados automaticamente quando o master entra em
+vigência. O cache de gráficos já carregado no FM atualiza ao recarregar a
+skin ou reiniciar o jogo. A marca Samsung já cadastrada foi reconhecida,
+com início em 24/12/2031 e o valor total efetivamente existente no FM.
+Em Patrocínios > Uniformes, Aplicar patrocinadores no FM habilita as imagens
+patrocinadas; Usar estilo do editor volta ao desenho dinâmico editável do jogo.
+O desenho do editor é preservado, mas as imagens patrocinadas têm desenho
+próprio. As marcas ainda não são sobrepostas ao desenho dinâmico do editor.
+
+Não inclui criação de novos espaços de patrocínio,
+compra de clubes afiliados nem novos menus dentro do FM.
+
+O histórico e os backups ficam em dados. Desfazer exige a mesma sessão e
+data da carreira e os campos ainda iguais aos gravados. Os backups anteriores à integração foram arquivados na pasta
+Documentos/FMPresidente-transferencia-drive-20261101/saves-originais.

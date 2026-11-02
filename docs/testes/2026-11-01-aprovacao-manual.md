@@ -1,0 +1,9 @@
+# Aprovação manual de clube — relatório de testes
+
+Data local: 01/11/2026. Ambiente: Windows 11 x64, Python 3.14, FM23 aberto. Por instrução expressa do usuário, selecionar o clube autoriza manualmente as operações para o Ceará na instância atual. A autorização manual não é prova de identidade de save ou treinador.
+
+O aplicativo revalida build/instância pela CP-01 e estrutura do clube antes das operações e de cada escrita; erro ou fechamento revoga o guard. O monitor invalida diante de alterações observadas. A troca de save que reproduza os mesmos identificadores e referências pode não ser detectada. Existe janela de concorrência. Outras equipes permanecem bloqueadas porque os layouts, UID, empréstimos e uniformes do aplicativo continuam específicos do Ceará. Negociações manuais utilizam arquivo separado `dados/negociacoes-manuais.json`; não há prova de associação desse arquivo ao save atual. Os dados anteriores não foram apagados.
+
+Testes: `python testar_identidade.py`: 15 aprovados; `python testar_compatibilidade.py`: 23 aprovados; `python testar_sincronizacao_hibrida.py`: 12 aprovados; `python testar_emprestimos.py`, `python testar_patrocinios.py` e `python verificar.py`: aprovados offline. `FM.connect_manual` com FM real aberto retornou snapshot do Ceará; espião confirmou nenhuma chamada de escrita nesse teste. `python construir.py`: aprovado; `bin-aprovacao-manual/FMPresidente.exe --self-check`: exit=0, ok=true. Atalhos atualizados.
+
+Não foram executados testes reais de escrita, contratação, salvar/reabrir, troca de save ou validação visual completa da interface. A autorização manual contradiz a política conservadora anterior da CP-02, por solicitação posterior expressa; R01 e riscos SG-01 permanecem abertos. Não afirmar que o save foi identificado. Autoteste anterior preservado.

@@ -1,0 +1,452 @@
+[
+  {
+    "id": "marca-001",
+    "name": "Adidas",
+    "sector": "Material esportivo",
+    "reputation": 99,
+    "investment": 98,
+    "logo": "marcas/001-adidas.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-002",
+    "name": "Nike",
+    "sector": "Material esportivo",
+    "reputation": 99,
+    "investment": 96,
+    "logo": "marcas/002-nike.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-003",
+    "name": "Emirates",
+    "sector": "Aviação",
+    "reputation": 97,
+    "investment": 98,
+    "logo": "marcas/003-emirates.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-004",
+    "name": "Coca-Cola",
+    "sector": "Bebidas",
+    "reputation": 98,
+    "investment": 94,
+    "logo": "marcas/004-coca-cola.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-005",
+    "name": "Visa",
+    "sector": "Pagamentos",
+    "reputation": 96,
+    "investment": 96,
+    "logo": "marcas/005-visa.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-006",
+    "name": "Qatar Airways",
+    "sector": "Aviação",
+    "reputation": 94,
+    "investment": 97,
+    "logo": "marcas/006-qatar-airways.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-007",
+    "name": "Puma",
+    "sector": "Material esportivo",
+    "reputation": 96,
+    "investment": 92,
+    "logo": "marcas/007-puma.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-008",
+    "name": "Aramco",
+    "sector": "Energia",
+    "reputation": 91,
+    "investment": 99,
+    "logo": "marcas/008-aramco.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-009",
+    "name": "Spotify",
+    "sector": "Streaming",
+    "reputation": 95,
+    "investment": 92,
+    "logo": "marcas/009-spotify.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-010",
+    "name": "Apple",
+    "sector": "Tecnologia",
+    "reputation": 98,
+    "investment": 87,
+    "logo": "marcas/010-apple.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-011",
+    "name": "Google",
+    "sector": "Tecnologia",
+    "reputation": 96,
+    "investment": 90,
+    "logo": "marcas/011-google.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-012",
+    "name": "Etihad Airways",
+    "sector": "Aviação",
+    "reputation": 94,
+    "investment": 93,
+    "logo": "marcas/012-etihad-airways.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-013",
+    "name": "Microsoft",
+    "sector": "Tecnologia",
+    "reputation": 98,
+    "investment": 86,
+    "logo": "marcas/013-microsoft.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-014",
+    "name": "Red Bull",
+    "sector": "Bebidas energéticas",
+    "reputation": 96,
+    "investment": 88,
+    "logo": "marcas/014-red-bull.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-015",
+    "name": "Amazon",
+    "sector": "Tecnologia e varejo",
+    "reputation": 96,
+    "investment": 87,
+    "logo": "marcas/015-amazon.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-016",
+    "name": "Mastercard",
+    "sector": "Pagamentos",
+    "reputation": 94,
+    "investment": 90,
+    "logo": "marcas/016-mastercard.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-017",
+    "name": "PepsiCo",
+    "sector": "Alimentos e bebidas",
+    "reputation": 94,
+    "investment": 90,
+    "logo": "marcas/017-pepsico.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-018",
+    "name": "Sony / PlayStation",
+    "sector": "Tecnologia e games",
+    "reputation": 95,
+    "investment": 87,
+    "logo": "marcas/018-sony-playstation.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-019",
+    "name": "McDonald's",
+    "sector": "Alimentação",
+    "reputation": 94,
+    "investment": 86,
+    "logo": "marcas/019-mcdonald-s.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-020",
+    "name": "Hyundai",
+    "sector": "Automotivo",
+    "reputation": 90,
+    "investment": 91,
+    "logo": "marcas/020-hyundai.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-021",
+    "name": "Lenovo",
+    "sector": "Tecnologia",
+    "reputation": 90,
+    "investment": 87,
+    "logo": "marcas/021-lenovo.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-022",
+    "name": "Volkswagen",
+    "sector": "Automotivo",
+    "reputation": 91,
+    "investment": 85,
+    "logo": "marcas/022-volkswagen.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-023",
+    "name": "Bank of America",
+    "sector": "Serviços financeiros",
+    "reputation": 87,
+    "investment": 90,
+    "logo": "marcas/023-bank-of-america.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-024",
+    "name": "EA Sports",
+    "sector": "Jogos eletrônicos",
+    "reputation": 90,
+    "investment": 84,
+    "logo": "marcas/024-ea-sports.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-025",
+    "name": "Standard Chartered",
+    "sector": "Banco",
+    "reputation": 88,
+    "investment": 87,
+    "logo": "marcas/025-standard-chartered.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-026",
+    "name": "Heineken",
+    "sector": "Bebidas",
+    "reputation": 89,
+    "investment": 84,
+    "logo": "marcas/026-heineken.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-027",
+    "name": "AIA Group",
+    "sector": "Seguros",
+    "reputation": 83,
+    "investment": 92,
+    "logo": "marcas/027-aia-group.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-028",
+    "name": "Deutsche Telekom",
+    "sector": "Telecomunicações",
+    "reputation": 85,
+    "investment": 88,
+    "logo": "marcas/028-deutsche-telekom.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-029",
+    "name": "FedEx",
+    "sector": "Logística",
+    "reputation": 88,
+    "investment": 83,
+    "logo": "marcas/029-fedex.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-030",
+    "name": "Audi",
+    "sector": "Automotivo",
+    "reputation": 89,
+    "investment": 81,
+    "logo": "marcas/030-audi.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-031",
+    "name": "AB InBev",
+    "sector": "Bebidas",
+    "reputation": 87,
+    "investment": 84,
+    "logo": "marcas/031-ab-inbev.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-032",
+    "name": "Mercado Livre",
+    "sector": "Comércio eletrônico",
+    "reputation": 88,
+    "investment": 81,
+    "logo": "marcas/032-mercado-livre.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-033",
+    "name": "Itaú Unibanco",
+    "sector": "Banco",
+    "reputation": 88,
+    "investment": 78,
+    "logo": "marcas/033-ita-unibanco.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-034",
+    "name": "Hisense",
+    "sector": "Eletrônicos",
+    "reputation": 82,
+    "investment": 86,
+    "logo": "marcas/034-hisense.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-035",
+    "name": "Uber",
+    "sector": "Mobilidade",
+    "reputation": 87,
+    "investment": 77,
+    "logo": "marcas/035-uber.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-036",
+    "name": "Riyadh Air",
+    "sector": "Aviação",
+    "reputation": 75,
+    "investment": 95,
+    "logo": "marcas/036-riyadh-air.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-037",
+    "name": "Vivo",
+    "sector": "Telecomunicações",
+    "reputation": 86,
+    "investment": 78,
+    "logo": "marcas/037-vivo.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-038",
+    "name": "DHL",
+    "sector": "Logística",
+    "reputation": 86,
+    "investment": 76,
+    "logo": "marcas/038-dhl.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-039",
+    "name": "iFood",
+    "sector": "Delivery",
+    "reputation": 84,
+    "investment": 76,
+    "logo": "marcas/039-ifood.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-040",
+    "name": "TCL",
+    "sector": "Eletrônicos",
+    "reputation": 78,
+    "investment": 82,
+    "logo": "marcas/040-tcl.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-041",
+    "name": "New Balance",
+    "sector": "Material esportivo",
+    "reputation": 83,
+    "investment": 72,
+    "logo": "marcas/041-new-balance.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-042",
+    "name": "Sadia",
+    "sector": "Alimentação",
+    "reputation": 80,
+    "investment": 75,
+    "logo": "marcas/042-sadia.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-043",
+    "name": "Cimed",
+    "sector": "Farmacêutico",
+    "reputation": 76,
+    "investment": 75,
+    "logo": "marcas/043-cimed.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-044",
+    "name": "Umbro",
+    "sector": "Material esportivo",
+    "reputation": 80,
+    "investment": 67,
+    "logo": "marcas/044-umbro.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-045",
+    "name": "bet365",
+    "sector": "Apostas esportivas",
+    "reputation": 63,
+    "investment": 91,
+    "logo": "marcas/045-bet365.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-046",
+    "name": "Betano",
+    "sector": "Apostas esportivas",
+    "reputation": 58,
+    "investment": 94,
+    "logo": "marcas/046-betano.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-047",
+    "name": "Sportingbet",
+    "sector": "Apostas esportivas",
+    "reputation": 59,
+    "investment": 86,
+    "logo": "marcas/047-sportingbet.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-048",
+    "name": "Superbet",
+    "sector": "Apostas esportivas",
+    "reputation": 56,
+    "investment": 88,
+    "logo": "marcas/048-superbet.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-049",
+    "name": "Esportes da Sorte",
+    "sector": "Apostas esportivas",
+    "reputation": 49,
+    "investment": 81,
+    "logo": "marcas/049-esportes-da-sorte.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  },
+  {
+    "id": "marca-050",
+    "name": "Volt Sport",
+    "sector": "Material esportivo",
+    "reputation": 65,
+    "investment": 51,
+    "logo": "marcas/050-volt-sport.png",
+    "art_type": "cartão tipográfico fornecido pelo usuário"
+  }
+]

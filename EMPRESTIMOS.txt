@@ -1,0 +1,37 @@
+Empréstimos financeiros do clube — FMPresidente
+
+Na aba Empréstimos, abra Contratar empréstimo.
+Informe o valor em libras e o número de parcelas mensais.
+Deixe a taxa em branco para solicitar a proposta inicial ou informe uma taxa
+anual desejada. Clique em Solicitar / negociar condições.
+
+A proposta mostra taxa, parcela, total e datas. Se a taxa pedida ficar abaixo
+do piso da negociação, o app apresenta uma contraproposta. Aceitar e contratar
+no FM abre a confirmação dos termos antes de creditar o caixa e criar a dívida.
+
+Os contratos têm de 6 a 120 parcelas fixas. A primeira vence no primeiro dia
+do mês seguinte; a última data corresponde à última parcela. O FM fica
+responsável pelo processamento periódico. Salve a carreira no FM para guardar
+as alterações. Use com o jogo parado, fora de partidas ou processamento.
+
+Em Contratos e renegociação, selecione uma dívida para consultar seu saldo,
+solicitar outra taxa/prazo ou quitar. Renegociar altera o contrato existente
+sobre o principal remanescente e não gera outro crédito no caixa.
+Quitar desconta o saldo do caixa e encerra o contrato. Modalidades com condições
+especiais são bloqueadas quando não correspondem ao modelo verificado.
+
+A negociação é uma simulação própria do FMPresidente. O contrato, o crédito
+e os campos financeiros são registrados nos dados reais do FM23.
+Os limites do app são £1.000 a £100.000.000 e até 100 registros de dívida.
+Quando as reservas de memória do FM não estiverem disponíveis, a operação
+será recusada sem aplicar parcialmente o contrato.
+
+O histórico registra os termos e as alterações. Desfazer exige os mesmos
+campos, sessão e dia; uma reserva já reutilizada pelo FM impede esse desfazer.
+Para encerrar normalmente uma dívida, utilize Quitar saldo da dívida.
+
+Validação desta versão: parcelas e negociação offline; falha simulada com
+rollback; criação de contrato, crédito, renegociação, quitação e restauração
+na memória real do FM23. O teste reversível não avançou o calendário, salvou
+ou reabriu a carreira. Detalhes em dados/validacao-emprestimos.json e na pasta
+engenharia_reversa/emprestimos.
