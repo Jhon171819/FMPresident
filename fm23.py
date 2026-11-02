@@ -21,6 +21,7 @@ import threading
 import uuid
 import compatibilidade as compat
 import identidade
+import recuperacao
 
 ROOT = Path(sys.executable).resolve().parent.parent if getattr(sys,'frozen',False) else Path(__file__).resolve().parent
 DATA = ROOT / 'dados'
@@ -164,7 +165,7 @@ class Memory:
         try: yield
         finally:
             if nt.NtResumeProcess(self.handle)<0:
-                raise OSError('Falha ao retomar o processo do FM.')
+                raise ResumeError('Falha ao retomar o processo do FM.')
 
     def alive(self):
         code=W.DWORD()
@@ -191,12 +192,41 @@ class ProcessProbe:
     def sample(self,address,size): return self.memory._sample(address,size)
 
 
-def process_info():
+def process_info_powershell():
     script = "$ErrorActionPreference='Stop'; $p=@(Get-Process -Name fm -ErrorAction SilentlyContinue); if($p.Count -ne 1){throw 'Abra uma única instância do FM23 com sua carreira carregada.'}; $p=$p[0]; @{pid=$p.Id; started=$p.StartTime.ToUniversalTime().Ticks.ToString(); version=$p.MainModule.FileVersionInfo.ProductVersion; base=$p.MainModule.BaseAddress.ToInt64(); size=$p.MainModule.ModuleMemorySize; path=$p.Path}|ConvertTo-Json -Compress"
     result=subprocess.run(['powershell.exe','-NoProfile','-NonInteractive','-Command',script],capture_output=True,text=True,creationflags=0x08000000,timeout=20)
     if result.returncode: raise RuntimeError('Abra uma única instância do FM23 com sua carreira carregada.')
     info=json.loads(result.stdout)
     return info
+
+
+def process_info():
+    from processos_windows import process_info as discover
+    return discover()
+
+
+class RecoveryError(OSError):
+    """A transação pode ter deixado dados em estado incerto."""
+
+class ResumeError(OSError):
+    pass
+
+
+def finalize_local_commit(entry):
+    """Confirma commit local sem repetir a escrita no jogo."""
+    if entry.get('local_commit')!='pending':return
+    matches=list((DATA/'historico').glob('*-'+entry['id']+'.json'))
+    if len(matches)!=1:raise OSError('Journal local não encontrado de forma única.')
+    saved=read_json(matches[0],{})
+    if saved.get('id')!=entry['id'] or saved.get('status')!='applied':raise OSError('Journal local inconsistente.')
+    saved['local_commit']='committed';save_json(matches[0],saved)
+    entry['local_commit']='committed'
+
+
+def pending_recovery(process, resource=None):
+    """Bloqueia journals incertos ou ilegíveis sem associar save por suposição."""
+    item=recuperacao.blocking(recuperacao.scan(DATA/'historico'),process,resource)
+    return (item.operation_id or 'journal-ilegível') if item else None
 
 
 class FM:
@@ -303,7 +333,7 @@ class FM:
         after=before&~8 if enabled else before|8
         if before==after:return None
         return self.transaction('Uniformes: '+('usar imagens patrocinadas' if enabled else 'usar estilo do editor'),
-            [dict(label='Permitir uniformes licenciados',addr=address,before=bytes([before]).hex(),after=bytes([after]).hex())],
+            [dict(label='Permitir uniformes licenciados',addr=address,before=bytes([before]).hex(),after=bytes([after]).hex(),ownership=dict(kind='team_flag',base=address-46,offset=46))],
             dict(expected_day=expected_day,licensed_kits=enabled))
 
     def vector(self, addr, limit=100):
@@ -360,19 +390,51 @@ class FM:
     def change(self, label, address, fmt, value):
         if fmt=='i' and not -2_000_000_000<=value<=2_000_000_000: raise ValueError('Valor fora da faixa permitida.')
         if fmt=='f' and (not math.isfinite(value) or not 0<=value<=100000): raise ValueError('Preço inválido.')
-        return dict(label=label,addr=address,before=self.mem.read(address,struct.calcsize('<'+fmt)).hex(),after=struct.pack('<'+fmt,value).hex())
+        result=dict(label=label,addr=address,before=self.mem.read(address,struct.calcsize('<'+fmt)).hex(),after=struct.pack('<'+fmt,value).hex())
+        for kind in ('finance','info'):
+            owner=getattr(self,kind,None)
+            if owner and owner<=address and address+struct.calcsize('<'+fmt)<=owner+(2200 if kind=='finance' else 512):
+                result['ownership']=dict(kind=kind,base=owner,offset=address-owner)
+                break
+        return result
+
+    def validate_change_owner(self, change, length):
+        owner=change.get('ownership')
+        if not owner:return
+        kind=owner.get('kind');offset=owner.get('offset')
+        if kind in ('finance','info'):
+            valid=(type(offset) is int and offset>=0
+                and offset+length<=(2200 if kind=='finance' else 512)
+                and getattr(self,kind,None)==owner.get('base')
+                and owner.get('base',0)+offset==change['addr'])
+        elif kind=='team_flag':
+            team=self.kit_team()
+            valid=(team==owner.get('base') and owner.get('offset')==46 and change['addr']==team+46 and length==1)
+        elif kind in ('sponsor','debt'):
+            collection=self.mem.pointer(self.club+296) if kind=='sponsor' else self.info+80
+            members=self.vector(collection,100);index=owner.get('index')
+            valid=(type(index) is int and 0<=index<len(members)
+                and members[index]==owner.get('base')==change['addr']
+                and length==(24 if kind=='sponsor' else 28))
+        else:valid=False
+        if not valid:raise ValueError('O proprietário do campo mudou. Atualize antes de aplicar.')
 
     def transaction(self, title, changes, meta=None):
         if not changes: raise ValueError('Nenhuma alteração selecionada.')
         with LOCK:
+            if getattr(self,'recovery_required',False):raise RecoveryError('Recuperação pendente; não aplique novas alterações nesta sessão.')
             self.guard.require_full()
             self.career_guard.require()
+            independent_ticket=all(c.get('ownership',{}).get('kind')=='finance' and c.get('ownership',{}).get('offset') in (24,28) for c in changes)
+            pending=pending_recovery(self.process,'ticket' if independent_ticket else None)
+            if pending:raise RecoveryError('Recuperação pendente; não aplique novas alterações nesta sessão. Operação '+str(pending))
             self.validate()
             stamp=self.mem.read(self.base+DATE_RVA,4)
             if meta and meta.get('expected_day') and fm_date(stamp).isoformat()!=meta['expected_day']:
                 raise ValueError('O dia do jogo mudou antes da aplicação. Atualize o painel.')
-            entry=dict(id=uuid.uuid4().hex,title=title,status='prepared',time=datetime.now().isoformat(),
+            entry=dict(schema_version=1,id=uuid.uuid4().hex,title=title,status='prepared',time=datetime.now().isoformat(),
                 date=fm_date(stamp).isoformat(),process=self.process,club=self.club,uid=UID,changes=changes,meta=meta or {})
+            if meta and ('sponsor_contract' in meta or 'sponsor_termination' in meta):entry['local_commit']='pending'
             journal=DATA/'historico'/f"{datetime.now():%Y%m%d-%H%M%S-%f}-{entry['id']}.json"
             save_json(journal,entry) # durable intent before the first write
             applied=[]
@@ -383,6 +445,7 @@ class FM:
                         if self.mem.read(self.base+DATE_RVA,4)!=stamp: raise ValueError('A data do jogo mudou; repita a operação com o FM parado.')
                         for change in changes:
                             before=bytes.fromhex(change['before']);after=bytes.fromhex(change['after'])
+                            self.validate_change_owner(change,len(before))
                             if len(before)!=len(after) or not before: raise ValueError('Transação inválida.')
                             if self.mem.read(change['addr'],len(before))!=before:
                                 raise ValueError('Os dados mudaram desde a leitura; atualize antes de aplicar.')
@@ -390,14 +453,50 @@ class FM:
                             applied.append(change)
                             raw=bytes.fromhex(change['after']);self.mem.write(change['addr'],raw)
                             if self.mem.read(change['addr'],len(raw))!=raw: raise OSError('A verificação da escrita falhou.')
-                    except Exception:
+                    except Exception as failure:
+                        if not applied:raise
+                        restored=[];uncertain=[]
                         for change in reversed(applied):
-                            self.mem.write(change['addr'],bytes.fromhex(change['before']))
-                        raise
+                            try:
+                                self.career_guard.require()
+                                before=bytes.fromhex(change['before'])
+                                self.validate_change_owner(change,len(before))
+                                self.mem.write(change['addr'],before)
+                                if self.mem.read(change['addr'],len(before))!=before:raise OSError('Restauração não conferida.')
+                                restored.append(change['label'])
+                            except Exception:
+                                uncertain.append(change['label'])
+                        entry['recovery']=dict(restored=restored,uncertain=uncertain)
+                        if uncertain:
+                            self.recovery_required=True
+                            if hasattr(self.career_guard,'revoke'):self.career_guard.revoke()
+                            entry['status']='recovery_required'
+                            raise RecoveryError('Não foi possível confirmar a recuperação completa. Evite novas alterações nesta sessão. Operação '+entry['id']) from failure
+                        entry['status']='rollback_verified'
+                        raise OSError('A operação falhou; as alterações foram restauradas e verificadas. Operação '+entry['id']) from failure
                 entry['status']='applied'
             except Exception as exc:
-                entry['status']='failed';entry['error']=str(exc);save_json(journal,entry);raise
-            save_json(journal,entry)
+                if isinstance(exc,ResumeError) or (applied and entry['status']=='prepared'):
+                    self.recovery_required=True
+                    if hasattr(self.career_guard,'revoke'):self.career_guard.revoke()
+                    entry['status']='recovery_required'
+                    exc=RecoveryError('Estado da operação ou do processo incerto. Não repita; operação '+entry['id'])
+                elif entry['status']=='prepared':entry['status']='failed'
+                entry['error']=str(exc)
+                try:save_json(journal,entry)
+                except Exception:
+                    if applied:
+                        self.recovery_required=True
+                        if hasattr(self.career_guard,'revoke'):self.career_guard.revoke()
+                        raise RecoveryError('Falha ao registrar o resultado; verifique a operação '+entry['id']+' antes de prosseguir.') from exc
+                    raise
+                if isinstance(exc,RecoveryError):raise exc
+                raise
+            try:save_json(journal,entry)
+            except Exception as exc:
+                self.recovery_required=True
+                if hasattr(self.career_guard,'revoke'):self.career_guard.revoke()
+                raise RecoveryError('Alteração aplicada na memória, mas não foi possível registrar o resultado. Não repita; operação '+entry['id']) from exc
             return entry
 
     def budgets(self, transfer, wage):
@@ -440,7 +539,7 @@ class FM:
         before=bytes.fromhex(row['raw']);after=bytearray(before)
         after[:4]=pack_date(start,before[:4]);after[4:8]=pack_date(end,before[4:8])
         struct.pack_into('<ii',after,8,total,0);after[19]=0;after[20]=1
-        changes=[dict(label=row['name'],addr=row['addr'],before=before.hex(),after=after.hex())]
+        changes=[dict(label=row['name'],addr=row['addr'],before=before.hex(),after=after.hex(),ownership=dict(kind='sponsor',index=row['index'],base=row['addr']))]
         replaced=[]
         if replace_overlaps and row['kind'] in {1,3,8,9,11,12,13,19}:
             today=self.date()
@@ -450,7 +549,7 @@ class FM:
                 old=bytes.fromhex(other['raw']);new=bytearray(old)
                 new[:4]=pack_date(today,old[:4]);new[4:8]=pack_date(today,old[4:8])
                 new[8:16]=b'\0'*8;new[19]=0;new[20]=1
-                changes.append(dict(label='Substituição de receita sobreposta',addr=other['addr'],before=old.hex(),after=new.hex()))
+                changes.append(dict(label='Substituição de receita sobreposta',addr=other['addr'],before=old.hex(),after=new.hex(),ownership=dict(kind='sponsor',index=other['index'],base=other['addr'])))
                 replaced.append(dict(index=other['index'],kind=other['kind'],total=other['total'],start=other['start'],end=other['end']))
         return self.transaction('Patrocínio: '+(brand or row['name']),changes,
             dict(kind=row['kind'],total=total,start=start.isoformat(),end=end.isoformat(),brand=brand,expected_day=expected_day,replaced=replaced,**(metadata or {})))
@@ -467,7 +566,7 @@ class FM:
         before=bytes.fromhex(row['raw']);after=bytearray(before);today=self.date()
         after[:4]=pack_date(today,before[:4]);after[4:8]=pack_date(today,before[4:8])
         after[8:16]=b'\0'*8;after[19]=0;after[20]=1
-        changes=[dict(label='Encerramento do contrato',addr=row['addr'],before=before.hex(),after=after.hex())]
+        changes=[dict(label='Encerramento do contrato',addr=row['addr'],before=before.hex(),after=after.hex(),ownership=dict(kind='sponsor',index=row['index'],base=row['addr']))]
         if penalty:changes.append(self.change('Multa debitada do caixa',self.finance+20,'i',balance-penalty))
         return self.transaction('Rescisão de patrocínio',changes,dict(penalty=penalty,expected_day=expected_day,**(metadata or {})))
 
@@ -480,7 +579,9 @@ class FM:
         if entry['status']!='applied' or entry['process']['started']!=self.process['started'] or entry['process']['pid']!=self.process['pid'] or entry['club']!=self.club:
             raise ValueError('Desfazer exige a mesma sessão do FM e uma operação aplicada.')
         if entry['date']!=self.date().isoformat(): raise ValueError('A data avançou. Use o backup do save para voltar a outro dia.')
-        return self.transaction('Desfazer: '+entry['title'],[dict(label=c['label'],addr=c['addr'],before=c['after'],after=c['before']) for c in reversed(entry['changes'])],dict(undoes=entry['id']))
+        if any(not c.get('ownership') for c in entry.get('changes',[])):
+            raise ValueError('Este histórico não comprova a propriedade de todos os campos; desfazer automático indisponível.')
+        return self.transaction('Desfazer: '+entry['title'],[dict(label=c['label'],addr=c['addr'],before=c['after'],after=c['before'],**({'ownership':c['ownership']} if c.get('ownership') else {})) for c in reversed(entry['changes'])],dict(undoes=entry['id']))
 
     def close(self):
         if hasattr(self,'career_guard') and hasattr(self.career_guard,'revoke'):self.career_guard.revoke()

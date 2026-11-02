@@ -43,6 +43,13 @@ class ChainTests(unittest.TestCase):
   r.data[0x2000]=0;self.assertIsNone(club_from_details(r,0x100000,0x1000,0x5002398))
   self.assertIsNone(club_from_details(r,0x100000,0x3000,0x5002398))
 class CandidateTests(unittest.TestCase):
+ def test_supported_club_record_is_candidate_only_with_correct_uid_and_alignment(self):
+  import struct
+  from sincronizacao_hibrida import matching_club_addresses
+  data=bytearray(64);struct.pack_into('<Q',data,8,0x1234);struct.pack_into('<I',data,20,104749)
+  self.assertEqual(list(matching_club_addresses(data,0x1000,0x1234,104749)),[0x1008])
+  self.assertEqual(list(matching_club_addresses(data,0x1000,0x1234,1)),[])
+  self.assertEqual(list(matching_club_addresses(data,0x1001,0x1234,104749)),[])
  def test_cache_candidate_and_link_upgrade(self):
   from types import SimpleNamespace
   c=SimpleNamespace(address=123,club=SimpleNamespace(uid=104749,name='Ceará'))

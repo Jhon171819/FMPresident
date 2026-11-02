@@ -9,10 +9,8 @@ import shutil
 import sys
 import tempfile
 from datetime import date, datetime, timedelta
-import tkinter as tk
-from tkinter import ttk, messagebox, filedialog
 import xml.etree.ElementTree as ET
-from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageTk
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 from fm23 import ROOT
 ASSETS = ROOT / 'assets'

@@ -1,0 +1,18 @@
+{
+  "task": {
+    "id": "TC011C-NEXT-IDENTITY",
+    "spec": "{\"cost\":2,\"dependencies\":[\"53a0824963020de8b8bc2e4d\"],\"description\":\"Investigar nome base e métodos PERSON/DATABASE_RECORD em sessão confirmada do save de teste. Nenhuma execução automática.\",\"kind\":\"manual_research\",\"novelty\":3,\"priority\":5,\"risk\":1,\"rvas\":[],\"stories\":[\"ST-03\",\"ST-04\",\"ST-10\",\"ST-11\"]}",
+    "state": "PENDING",
+    "checkpoint": "{\"done\":[],\"frontier\":[]}",
+    "updated": 1793629287.3708296
+  },
+  "ranking": [
+    {
+      "id": "TC011C-NEXT-IDENTITY",
+      "score": 5,
+      "ready": true,
+      "reason": "priority + novelty - cost - risk; missing=[]"
+    }
+  ],
+  "note": "ready refere-se apenas às dependências técnicas; não comprova save nem concede autorização operacional."
+}

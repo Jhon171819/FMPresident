@@ -1,0 +1,42 @@
+{
+  "tabela_500_sem_alteracoes": {
+    "n": 20,
+    "median_ms": 4.703,
+    "min_ms": 3.57,
+    "max_ms": 29.179,
+    "p95_ms": 19.272,
+    "first_ms": 4.145
+  },
+  "journals": {
+    "n": 10,
+    "median_ms": 537.253,
+    "min_ms": 360.851,
+    "max_ms": 1399.133,
+    "p95_ms": null,
+    "first_ms": 1399.133
+  },
+  "observacao_real": {
+    "n": 3,
+    "median_ms": 1703.599,
+    "min_ms": 1663.872,
+    "max_ms": 3608.133,
+    "p95_ms": null,
+    "first_ms": 3608.133
+  },
+  "candidatos_cache_real": {
+    "n": 3,
+    "median_ms": 1816.503,
+    "min_ms": 1755.918,
+    "max_ms": 1894.727,
+    "p95_ms": null,
+    "first_ms": 1755.918
+  },
+  "snapshot_real": {
+    "n": 3,
+    "median_ms": 103.765,
+    "min_ms": 92.384,
+    "max_ms": 206.42,
+    "p95_ms": null,
+    "first_ms": 92.384
+  }
+}

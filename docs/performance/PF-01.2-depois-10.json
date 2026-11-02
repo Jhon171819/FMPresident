@@ -1,0 +1,1402 @@
+[
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "process_discovery",
+    "ns": 12073800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "fingerprint",
+    "ns": 1914778900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "build_validation",
+    "ns": 1917266200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "memory_read",
+    "ns": 896100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "fingerprint",
+    "ns": 2308372100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "build_validation",
+    "ns": 2311533300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "sqlite_query",
+    "ns": 229700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "memory_read",
+    "ns": 796600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "memory_read",
+    "ns": 547300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "memory_read",
+    "ns": 534100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "memory_read",
+    "ns": 534400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "memory_read",
+    "ns": 568500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "memory_read",
+    "ns": 579000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "memory_read",
+    "ns": 537200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "memory_read",
+    "ns": 577000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "memory_read",
+    "ns": 604400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "memory_read",
+    "ns": 561700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "memory_read",
+    "ns": 671700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "memory_read",
+    "ns": 732100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "d9944ce351f34fa6a45492b6ea659d72",
+    "phase": "pipeline",
+    "ns": 4307492500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "process_discovery",
+    "ns": 10859100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "fingerprint",
+    "ns": 1681764600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "build_validation",
+    "ns": 1686011100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "memory_read",
+    "ns": 705600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "fingerprint",
+    "ns": 2626633100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "build_validation",
+    "ns": 2629762400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "sqlite_query",
+    "ns": 209000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "memory_read",
+    "ns": 686900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "memory_read",
+    "ns": 534900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "memory_read",
+    "ns": 534300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "memory_read",
+    "ns": 506200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "memory_read",
+    "ns": 513700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "memory_read",
+    "ns": 526800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "memory_read",
+    "ns": 535400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "memory_read",
+    "ns": 635000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "memory_read",
+    "ns": 923600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "memory_read",
+    "ns": 1024600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "memory_read",
+    "ns": 805500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "memory_read",
+    "ns": 869300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "6dc0f936f4844d679e6f41e7155b4c1e",
+    "phase": "pipeline",
+    "ns": 4411324600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "process_discovery",
+    "ns": 12829500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "fingerprint",
+    "ns": 1984604400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "build_validation",
+    "ns": 1986869400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "memory_read",
+    "ns": 572300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "fingerprint",
+    "ns": 2493934900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "build_validation",
+    "ns": 2498137000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "sqlite_query",
+    "ns": 174100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "memory_read",
+    "ns": 1233400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "memory_read",
+    "ns": 500700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "memory_read",
+    "ns": 4588700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "memory_read",
+    "ns": 5443200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "memory_read",
+    "ns": 705200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "memory_read",
+    "ns": 653500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "memory_read",
+    "ns": 919600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "memory_read",
+    "ns": 636500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "memory_read",
+    "ns": 715600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "memory_read",
+    "ns": 685700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "memory_read",
+    "ns": 692700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "memory_read",
+    "ns": 593400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "eaceaf28edc14f828ded6dfc74f8c681",
+    "phase": "pipeline",
+    "ns": 4538236500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "process_discovery",
+    "ns": 12545600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "fingerprint",
+    "ns": 1731083000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "build_validation",
+    "ns": 1733407900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "memory_read",
+    "ns": 1116700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "fingerprint",
+    "ns": 2162085000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "build_validation",
+    "ns": 2164024200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "sqlite_query",
+    "ns": 173800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "memory_read",
+    "ns": 683500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "memory_read",
+    "ns": 510500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "memory_read",
+    "ns": 481600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "memory_read",
+    "ns": 512600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "memory_read",
+    "ns": 461100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "memory_read",
+    "ns": 476000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "memory_read",
+    "ns": 491900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "memory_read",
+    "ns": 697900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "memory_read",
+    "ns": 480700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "memory_read",
+    "ns": 457800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "memory_read",
+    "ns": 483900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "memory_read",
+    "ns": 457200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "062cc6d3b55c4c9499e4bf2683b00619",
+    "phase": "pipeline",
+    "ns": 3933318900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "process_discovery",
+    "ns": 8190400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "fingerprint",
+    "ns": 1217023400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "build_validation",
+    "ns": 1218694700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "memory_read",
+    "ns": 533600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "fingerprint",
+    "ns": 1841454100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "build_validation",
+    "ns": 1844004000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "sqlite_query",
+    "ns": 395200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "memory_read",
+    "ns": 9441300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "memory_read",
+    "ns": 1013900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "memory_read",
+    "ns": 669100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "memory_read",
+    "ns": 938300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "memory_read",
+    "ns": 664600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "memory_read",
+    "ns": 639100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "memory_read",
+    "ns": 571800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "memory_read",
+    "ns": 573100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "memory_read",
+    "ns": 588300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "memory_read",
+    "ns": 558200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "memory_read",
+    "ns": 527900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "memory_read",
+    "ns": 515500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "933980765d9a4261882bbbe4b9ee0f11",
+    "phase": "pipeline",
+    "ns": 3106471800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "process_discovery",
+    "ns": 8042600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "fingerprint",
+    "ns": 1987989700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "build_validation",
+    "ns": 1994982700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "memory_read",
+    "ns": 566000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "fingerprint",
+    "ns": 2249586200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "build_validation",
+    "ns": 2251477600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "sqlite_query",
+    "ns": 172400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "memory_read",
+    "ns": 587000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "memory_read",
+    "ns": 477000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "memory_read",
+    "ns": 481900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "memory_read",
+    "ns": 484300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "memory_read",
+    "ns": 457900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "memory_read",
+    "ns": 457500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "memory_read",
+    "ns": 472100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "memory_read",
+    "ns": 458700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "memory_read",
+    "ns": 497700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "memory_read",
+    "ns": 461800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "memory_read",
+    "ns": 491800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "memory_read",
+    "ns": 466200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "e3830e4453a04fd1858e94565c22ee31",
+    "phase": "pipeline",
+    "ns": 4307473700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "process_discovery",
+    "ns": 9307400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "fingerprint",
+    "ns": 2196666500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "build_validation",
+    "ns": 2199273700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "memory_read",
+    "ns": 619400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "fingerprint",
+    "ns": 2139389000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "build_validation",
+    "ns": 2147848900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "sqlite_query",
+    "ns": 273700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "memory_read",
+    "ns": 702800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "memory_read",
+    "ns": 521900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "memory_read",
+    "ns": 529800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "memory_read",
+    "ns": 497300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "memory_read",
+    "ns": 493800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "memory_read",
+    "ns": 520400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "memory_read",
+    "ns": 793300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "memory_read",
+    "ns": 647200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "memory_read",
+    "ns": 1076900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "memory_read",
+    "ns": 555400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "memory_read",
+    "ns": 1152200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "memory_read",
+    "ns": 551800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "de9fc7749b324c32a7428081a4d4ba39",
+    "phase": "pipeline",
+    "ns": 4416377800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "process_discovery",
+    "ns": 9144100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "fingerprint",
+    "ns": 1568323300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "build_validation",
+    "ns": 1574122200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "memory_read",
+    "ns": 680700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "fingerprint",
+    "ns": 2412315800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "build_validation",
+    "ns": 2416512300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "sqlite_query",
+    "ns": 258800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "memory_read",
+    "ns": 747000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "memory_read",
+    "ns": 579800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "memory_read",
+    "ns": 550500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "memory_read",
+    "ns": 555200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "memory_read",
+    "ns": 688000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "memory_read",
+    "ns": 859500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "memory_read",
+    "ns": 786000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "memory_read",
+    "ns": 756700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "memory_read",
+    "ns": 985500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "memory_read",
+    "ns": 3814500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "memory_read",
+    "ns": 1134300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "memory_read",
+    "ns": 659500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "019cc0160d9e49cebc57686e39056b63",
+    "phase": "pipeline",
+    "ns": 4027038200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "process_discovery",
+    "ns": 10194100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "fingerprint",
+    "ns": 1872385200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "build_validation",
+    "ns": 1874243100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "memory_read",
+    "ns": 1002900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "fingerprint",
+    "ns": 1923847700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "build_validation",
+    "ns": 1925509100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "sqlite_query",
+    "ns": 186300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "memory_read",
+    "ns": 588200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "memory_read",
+    "ns": 492500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "memory_read",
+    "ns": 676300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "memory_read",
+    "ns": 791800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "memory_read",
+    "ns": 1713400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "memory_read",
+    "ns": 569300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "memory_read",
+    "ns": 482100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "memory_read",
+    "ns": 508800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "memory_read",
+    "ns": 506800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "memory_read",
+    "ns": 472000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "memory_read",
+    "ns": 515800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "memory_read",
+    "ns": 474200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "3a588714f88b4065be51729dd1c8149b",
+    "phase": "pipeline",
+    "ns": 3837882400,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "process_discovery",
+    "ns": 10191500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "fingerprint",
+    "ns": 1312534500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "build_validation",
+    "ns": 1314509100,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "memory_read",
+    "ns": 582200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "fingerprint",
+    "ns": 2384786600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "build_validation",
+    "ns": 2388969000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "sqlite_query",
+    "ns": 180300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "memory_read",
+    "ns": 6332600,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "memory_read",
+    "ns": 705000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "memory_read",
+    "ns": 546000,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "memory_read",
+    "ns": 920500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "memory_read",
+    "ns": 1679500,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "memory_read",
+    "ns": 1797300,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "memory_read",
+    "ns": 725800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "memory_read",
+    "ns": 644800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "memory_read",
+    "ns": 875900,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "memory_read",
+    "ns": 799800,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "memory_read",
+    "ns": 1017200,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "memory_read",
+    "ns": 742700,
+    "ok": true,
+    "origin": "diagnostic"
+  },
+  {
+    "operation": "09a721bf7fe14d8fbf32b261f0c3b01e",
+    "phase": "pipeline",
+    "ns": 3795338500,
+    "ok": true,
+    "origin": "diagnostic"
+  }
+]

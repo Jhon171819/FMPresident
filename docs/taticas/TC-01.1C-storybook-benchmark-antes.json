@@ -1,0 +1,55 @@
+{
+  "fixture": true,
+  "count": 2000,
+  "evidence_per_story": 6,
+  "phases": {
+    "import": {
+      "wall_s": 19.669438900004025,
+      "cpu_s": 15.40625
+    },
+    "list": {
+      "wall_s": 0.06920040000113659,
+      "cpu_s": 0.0625,
+      "matches": 2000
+    },
+    "text": {
+      "wall_s": 18.796258100002888,
+      "cpu_s": 15.90625,
+      "matches": 2000
+    },
+    "class": {
+      "wall_s": 0.003909100007149391,
+      "cpu_s": 0.0,
+      "matches": 100
+    },
+    "category": {
+      "wall_s": 0.06122529999993276,
+      "cpu_s": 0.0625,
+      "matches": 2000
+    },
+    "incremental_update": {
+      "wall_s": 0.04846510000061244,
+      "cpu_s": 0.015625
+    },
+    "export": {
+      "wall_s": 25.73527489999833,
+      "cpu_s": 4.328125
+    }
+  },
+  "wall_s": 64.39960699999938,
+  "cpu_s": 35.796875,
+  "process_usage": {
+    "rss": 108732416,
+    "peak_rss": 152289280,
+    "logical_read_bytes": 15917987582,
+    "logical_write_bytes": 259077869
+  },
+  "database_bytes": 26800128,
+  "exported_stories": 2000,
+  "status_counts": [
+    {
+      "status": "PARTIAL",
+      "count": 2000
+    }
+  ]
+}

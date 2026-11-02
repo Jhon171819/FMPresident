@@ -1,0 +1,77 @@
+{
+  "schema": 2,
+  "build": "23.2.0+1771058",
+  "stories": [
+    {
+      "id": "ST-01",
+      "build": "23.2.0+1771058",
+      "revision": 2
+    },
+    {
+      "id": "ST-02",
+      "build": "23.2.0+1771058",
+      "revision": 2
+    },
+    {
+      "id": "ST-03",
+      "build": "23.2.0+1771058",
+      "revision": 2
+    },
+    {
+      "id": "ST-04",
+      "build": "23.2.0+1771058",
+      "revision": 2
+    },
+    {
+      "id": "ST-05",
+      "build": "23.2.0+1771058",
+      "revision": 2
+    },
+    {
+      "id": "ST-06",
+      "build": "23.2.0+1771058",
+      "revision": 2
+    },
+    {
+      "id": "ST-07",
+      "build": "23.2.0+1771058",
+      "revision": 3
+    },
+    {
+      "id": "ST-08",
+      "build": "23.2.0+1771058",
+      "revision": 1
+    },
+    {
+      "id": "ST-09",
+      "build": "23.2.0+1771058",
+      "revision": 1
+    },
+    {
+      "id": "ST-10",
+      "build": "23.2.0+1771058",
+      "revision": 2
+    },
+    {
+      "id": "ST-11",
+      "build": "23.2.0+1771058",
+      "revision": 1
+    }
+  ],
+  "files": {
+    "ST-01-39e664842d50.md": "c716ad1bbdd45e98be6a8c0f3434d2193926bc3dec9efd9007c976f634980b7e",
+    "ST-02-39e664842d50.md": "7a3c5785b43e7eb88b8af9651778a3fdeef585c84b0350a7f9e2ce8b37917b68",
+    "ST-03-39e664842d50.md": "f8c4be8311d3585c0c022ec68fbcacf94ddad805655f94f0ff1de78f2ced41fa",
+    "ST-04-39e664842d50.md": "178520b845e97f62c827c1f87ee47f5008da2a56e66e4b12d4c26a37b045cb39",
+    "ST-05-39e664842d50.md": "4eb1de7625bbbc7d599d3d768742f404b9344d89365ea65d796d7e0c0a8d52da",
+    "ST-06-39e664842d50.md": "a32a9ee2e556ae19f25af733dff9842907394a3b93691d190240169d0d57497d",
+    "ST-07-39e664842d50.md": "208fc131dc721ec07215d3de2b7d8807b8abb024bdcba7f6f0fa0dcd84e3a03a",
+    "ST-08-39e664842d50.md": "67d47f1ab8219d17a5dfe5c172cbc0751c70f30f1c8340c8855e4849bfe7ac8b",
+    "ST-09-39e664842d50.md": "2b906efc0be860a285ec61a103982c633e8605763f79b242b4d8035d9eb38d50",
+    "ST-10-39e664842d50.md": "28b665c212d256e0cf7e095941988b24e808574e874296cdccc4d9f2088ea3b8",
+    "ST-11-39e664842d50.md": "a1bbf641736a171221539ebde27b4fa7d41430b213abb5cc55571bae9d8051c3",
+    "catalogo.md": "4e52f9711cd0fe1e2fd39061dae9b083d5fe4ce1e83138cc20c6da0ce8b2b421",
+    "snapshot.json": "acd28d0aa3ead5dc12f281db0d09ad4349adb89022715f138522b0a0c47e6574",
+    "ER-01-opportunities.md": "232f65c247d8634d9e9c30f22d682db8317ce470093bcf8141fbf6c28a418fe0"
+  }
+}

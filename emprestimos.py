@@ -189,6 +189,39 @@ def _contract_block(fm, changes):
     return head
 
 
+def _allocation_plan(fm):
+    """Audita, sem escrever, as duas reservas necessárias para um contrato novo."""
+    rows = fm.debt_rows()
+    if len(rows) >= 100:
+        raise ValueError('O limite de contratos suportado foi atingido.')
+    changes = []
+    contract = _contract_block(fm, changes)
+    vector = _vector_block(fm, (len(rows) + 1) * 8, changes)
+    if not contract or not vector or any(c['before'] == c['after'] for c in changes):
+        raise ValueError('As reservas nativas não apresentaram um plano consistente.')
+    return dict(rows=len(rows), contract=contract, vector=vector, changes=len(changes))
+
+
+def allocation_status(fm):
+    """Retorna disponibilidade atual sem alterar a memória do FM."""
+    try:
+        _build(fm)
+        with native.LOCK, fm.mem.paused():
+            fm.validate()
+            plan = _allocation_plan(fm)
+        return dict(available=True, reason='Reserva nativa conferida para esta sessão.', plan=plan)
+    except (OSError, ValueError) as error:
+        return dict(available=False, reason=str(error), plan=None)
+
+
+def _require_pool_allocation_proven(fm=None):
+    if fm is None:
+        raise ValueError('A contratação exige uma sessão ativa do FM para auditar as reservas nativas.')
+    status = allocation_status(fm)
+    if not status['available']:
+        raise ValueError('A contratação está indisponível nesta sessão: ' + status['reason'])
+
+
 def _vector_block(fm, size, changes):
     m = fm.mem
     manager = m.pointer(fm.base + ALLOCATOR)
@@ -216,8 +249,10 @@ def _vector_block(fm, size, changes):
 
 
 def sign(fm, proposal):
+    if getattr(fm,'recovery_required',False):raise native.RecoveryError('Recuperação pendente nesta sessão.')
     fm.guard.require_full()
     fm.career_guard.require()
+    if native.pending_recovery(fm.process):raise native.RecoveryError('Recuperação pendente nesta sessão.')
     _build(fm)
     # O congelamento externo inclui a leitura das reservas e o journal durável.
     # Assim nenhum thread do FM pode disputar os blocos entre o plano e o commit.
@@ -243,9 +278,12 @@ def sign(fm, proposal):
             if not row or row['raw'] != debt['raw'] or outstanding(row, today) != proposal['principal']:
                 raise ValueError('O empréstimo mudou. Atualize a seleção e renegocie novamente.')
             address = row['addr']
-            changes.append(_change(fm, 'Novas condições da dívida', address, raw))
+            change=_change(fm, 'Novas condições da dívida', address, raw)
+            change['ownership']=dict(kind='debt',index=row['index'],base=address)
+            changes.append(change)
             title = 'Renegociação de empréstimo financeiro'
         else:
+            _require_pool_allocation_proven(fm)
             if len(rows) >= 100:
                 raise ValueError('O limite de contratos suportado foi atingido.')
             address = _contract_block(fm, changes)
@@ -275,8 +313,10 @@ def sign(fm, proposal):
 
 
 def repay(fm, index, expected):
+    if getattr(fm,'recovery_required',False):raise native.RecoveryError('Recuperação pendente nesta sessão.')
     fm.guard.require_full()
     fm.career_guard.require()
+    if native.pending_recovery(fm.process):raise native.RecoveryError('Recuperação pendente nesta sessão.')
     with native.LOCK, fm.mem.paused():
         fm.validate()
         _ensure_idle(fm)
@@ -294,7 +334,9 @@ def repay(fm, index, expected):
         after[16:20] = native.pack_date(today, before[16:20])
         if date.fromisoformat(row['start']) > today:
             after[20:24] = native.pack_date(today, before[20:24])
-        changes = [_change(fm, 'Encerramento da dívida', row['addr'], bytes(after)), fm.change('Quitação no caixa', fm.finance + 20, 'i', balance - cost)]
+        debt_change=_change(fm, 'Encerramento da dívida', row['addr'], bytes(after))
+        debt_change['ownership']=dict(kind='debt',index=row['index'],base=row['addr'])
+        changes = [debt_change, fm.change('Quitação no caixa', fm.finance + 20, 'i', balance - cost)]
         for offset in (0x284, 0x4a4):
             changes.append(fm.change('Pagamento de dívida', fm.finance + offset, 'i', fm.mem.number(fm.finance + offset) + cost))
         if before[25] == 0:

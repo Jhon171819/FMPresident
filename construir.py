@@ -2,6 +2,7 @@
 import os
 from pathlib import Path
 import sys
+import shutil
 
 root = Path(__file__).resolve().parent
 toolroot = root/'ferramentas/build-tools'
@@ -17,3 +18,4 @@ PyInstaller.__main__.run([
     '--exclude-module','numpy','--exclude-module','matplotlib','--exclude-module','scipy',
     '--exclude-module','pandas','--exclude-module','IPython','--exclude-module','pytest'
 ])
+shutil.copytree(root/'assets',root/'build/distrib/assets',dirs_exist_ok=True)

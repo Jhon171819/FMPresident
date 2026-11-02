@@ -83,7 +83,7 @@ class IdentityTests(unittest.TestCase):
             with self.assertRaises(identity.IdentityError):fn()
         fm.mem.paused.assert_not_called();fm.mem.write.assert_not_called()
     def test_missing_fm(self):
-        with patch.object(fm23.subprocess,'run',return_value=SimpleNamespace(returncode=1)):
+        with patch('processos_windows.enumerate_processes',return_value=[]):
             with self.assertRaises(RuntimeError):fm23.process_info()
 
 class ManualTests(unittest.TestCase):

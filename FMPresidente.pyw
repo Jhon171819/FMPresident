@@ -17,6 +17,7 @@ import uniformes
 import patrocinios_ui
 import emprestimos_ui
 import sincronizacao_hibrida as sync
+import recuperacao
 import time
 
 native.C.windll.shell32.SetCurrentProcessExplicitAppUserModelID('FMPresidente.FM23.Local')
@@ -43,11 +44,13 @@ class App(tk.Tk):
         self.geometry('1190x805');self.minsize(1060,740);self.configure(bg=BG)
         self.fm=None;self.snap=None;self.busy=False;self.closed=False;self.events=queue.Queue()
         self.sync=sync.Coordinator();self.last_monitor=0;self.selected_candidate=None;self.candidates=[]
+        self.recovery_running=False
+        self.pending_sync=False
         self.store=native.read_json(STATE,{'brands':[],'custom':[],'quotes':{},'installed':None})
         self.companies=[{'name':'Samsung','logo':'samsung.png'},{'name':'Spotify','logo':'spotify.png'}]+self.store.get('custom',[])
         self.quote=None;self.selected_sponsor=None;self.history_entries=[]
         self.style();self.build();self.protocol('WM_DELETE_WINDOW',self.close)
-        self.after(150,self.pump);self.after(300,self.connect);self.after(4000,self.poll)
+        self.after(150,self.pump);self.after(300,self.connect);self.after(500,self.update_recovery_indicator);self.after(4000,self.poll)
 
     def style(self):
         s=ttk.Style(self);s.theme_use('clam')
@@ -101,6 +104,9 @@ class App(tk.Tk):
         ttk.Button(top,text='Aplicar patrocinadores',command=self.apply_kit_sponsors).pack(side='right',padx=8)
         self.connection=tk.StringVar(value='Preparando conexão…')
         self.label(outer,'',textvariable=self.connection,style='Muted.TLabel')
+        self.recovery_summary=tk.StringVar(value='Recuperação: verificando histórico…')
+        self.label(outer,'',textvariable=self.recovery_summary,style='Muted.TLabel')
+        self.status=tk.StringVar(value='Iniciando…');self.label(outer,'',textvariable=self.status,style='Muted.TLabel',wraplength=1120)
         candidate_row=ttk.Frame(outer);candidate_row.pack(fill='x')
         ttk.Button(candidate_row,text='Buscar candidatos',command=self.search_candidates).pack(side='left',padx=(0,8))
         ttk.Button(candidate_row,text='Buscar mais',command=lambda:self.search_candidates(full=True)).pack(side='left',padx=(0,8))
@@ -169,8 +175,8 @@ class App(tk.Tk):
         self.history_tree=self.table(p,[('time','Aplicado em',145),('date','Dia no FM',100),('title','Decisão',390),('status','Estado',100)],9)
         row=ttk.Frame(p);row.pack(fill='x');self.button(row,'Desfazer decisão selecionada',self.undo,True)
         self.button(row,'Atualizar histórico',self.refresh_history)
+        self.button(row,'Central de Recuperação',self.open_recovery)
         self.label(p,'Desfazer exige a mesma sessão e data, com os campos ainda iguais aos gravados.\nPara voltar a outro dia ou depois de reabrir o jogo, use o backup da carreira.',style='Muted.TLabel')
-        self.status=tk.StringVar(value='Iniciando…');self.label(outer,'',textvariable=self.status,style='Muted.TLabel',wraplength=1120)
         self.refresh_history()
 
     def run(self,fn,done=None,text='Aplicando…'):
@@ -189,9 +195,15 @@ class App(tk.Tk):
             while True:
                 kind,result,callback=self.events.get_nowait()
                 if kind=='progress':self.status.set(result);continue
+                if kind=='recovery_indicator':
+                    self.recovery_running=False
+                    count=sum(r.state in ('STATE_UNKNOWN','RECOVERY_REQUIRED','LOCAL_COMMIT_PENDING','JOURNAL_UNREADABLE') for r in result)
+                    self.recovery_summary.set(f'Recuperação: {count} registro(s) pendente(s); consulte a aba Histórico.' if count else 'Recuperação: nenhuma pendência identificada.')
+                    continue
                 self.busy=False
                 if kind=='error':
                     self.status.set(result)
+                    self.update_recovery_indicator()
                     if result.startswith(('Build bloqueada','Identidade não verificada')):
                         self.snap=None;self.connection.set(result)
                     elif self.fm is None:self.connection.set('Desconectado • '+result)
@@ -199,8 +211,16 @@ class App(tk.Tk):
                 elif callback:
                     try:callback(result)
                     except Exception as exc:
-                        self.status.set(str(exc));messagebox.showerror('Atualização do painel',str(exc),parent=self)
+                        self.update_recovery_indicator()
+                        if isinstance(result,dict) and result.get('status')=='applied':
+                            self.snap=None;self.set_actions(False)
+                            self.status.set('Alteração aplicada na memória, mas a atualização local falhou. Não repita; operação '+result.get('id','desconhecida'))
+                            messagebox.showwarning('Alteração aplicada',self.status.get(),parent=self)
+                        else:self.status.set(str(exc));messagebox.showerror('Atualização do painel',str(exc),parent=self)
                 self.set_actions(self.fm is not None and self.snap is not None)
+                if getattr(self,'pending_sync',False) and not self.busy:
+                    self.pending_sync=False
+                    self.connect()
         except queue.Empty:pass
         self.after(150,self.pump)
 
@@ -209,17 +229,23 @@ class App(tk.Tk):
         self.loans_panel.set_enabled(enabled and not self.busy)
 
     def connect(self):
-        if self.busy:return
+        if self.busy:
+            self.pending_sync=True
+            self.sync.begin()
+            self.status.set('Sincronização recebida; aguardando a tarefa atual terminar…')
+            self.set_actions(False)
+            return
         epoch=self.sync.begin()
-        self.selected_candidate=None;self.candidates=[];self.candidate_choice.set('');self.candidate_filter.set('');self.candidate_box.configure(values=[])
+        self.selected_candidate=None;self.candidates=[];self.candidate_choice.set('');self.candidate_box.configure(values=[])
         if self.fm:self.fm.close();self.fm=None
         self.snap=None;self.clear_candidate_cards();self.set_actions(False)
         self.connection.set('Sincronizando • identidade da carreira ainda não comprovada')
         def work():
-            try:return sync.observe(),None
+            try:return sync.observe_and_candidates(query=self.candidate_filter_value),None
             except Exception as exc:return None,str(exc)
         def ready(result):
-            observation,error=result
+            payload,error=result
+            observation=payload[0] if payload else None
             if not self.sync.finish(epoch,observation,error):return
             self.last_monitor=time.monotonic()
             if error:
@@ -227,8 +253,12 @@ class App(tk.Tk):
                 self.status.set('Sincronização falhou. Verifique o FM e tente novamente.')
             else:
                 self.show_observation(observation)
+                self.update_recovery_indicator()
                 # Agendado após liberar a fila do Tkinter; descarta épocas antigas.
-                self.after(0,lambda: self.search_candidates() if not self.closed and self.sync.epoch==epoch else None)
+                self.candidates,limited=payload[1]
+                self.candidate_box.configure(values=[f'{c.club.name} • ID {c.club.uid} • candidato {i+1}' for i,c in enumerate(self.candidates)])
+                self.status.set(f'{len(self.candidates)} candidato(s). Escolha na lista e clique em Selecionar candidato.' if self.candidates else 'Nenhum candidato encontrado nesta busca. Tente Buscar mais.')
+        self.candidate_filter_value=self.candidate_filter.get().strip()
         self.run(work,ready,'Observando FM23…')
 
     def search_candidates(self,full=False):
@@ -236,9 +266,13 @@ class App(tk.Tk):
         epoch=self.sync.epoch;query=self.candidate_filter.get().strip()
         def ready(result):
             if epoch!=self.sync.epoch:return
+            previous=self.candidate_box.current()
+            address=self.candidates[previous].address if 0<=previous<len(self.candidates) else None
             self.candidates,limited=result
             self.candidate_box.configure(values=[f"{c.club.name} • ID {c.club.uid} • {'vínculo observado' if c.source=='vinculo' else 'registro anterior: vínculo não confirmado'} • {i+1}" for i,c in enumerate(self.candidates)])
-            self.candidate_choice.set('')
+            selected=next((i for i,c in enumerate(self.candidates) if c.address==address),None)
+            if selected is None:self.candidate_choice.set('')
+            else:self.candidate_box.current(selected)
             self.status.set(f'{len(self.candidates)} registros disponíveis'+(' (busca limitada).' if limited else '.')+' A relação com o treinador ativo ainda não foi comprovada.')
         self.run(lambda:sync.search_candidates(prefer_cache=not full,query=query),ready,'Buscando clubes candidatos…')
 
@@ -323,25 +357,32 @@ class App(tk.Tk):
         for i in tree.get_children():
             if i not in wanted:tree.delete(i)
         for i,values in rows:
-            if tree.exists(i):tree.item(i,values=values)
+            if tree.exists(i):
+                if tuple(map(str,tree.item(i,'values')))!=tuple(map(str,values)):tree.item(i,values=values)
             else:tree.insert('','end',iid=i,values=values)
 
     def poll(self):
         if self.closed:return
         if not self.busy and self.sync.state==sync.State.OBSERVED_UNVERIFIED and time.monotonic()-self.last_monitor>=20:
             epoch=self.sync.epoch;self.last_monitor=time.monotonic()
+            active_fm=self.fm;selected=self.selected_candidate
             def work():
-                try:return sync.observe(self.selected_candidate),None
-                except Exception as exc:return None,str(exc)
+                try:
+                    observation=sync.observe(selected)
+                    snapshot=active_fm.snapshot() if active_fm else None
+                    return observation,None,snapshot,None
+                except Exception as exc:return None,str(exc),None,None
             def ready(result):
-                observation,error=result
+                observation,error,snapshot,_=result
                 if not self.sync.inspect(epoch,observation,error):return
                 if self.sync.state==sync.State.CONTEXT_CHANGED:
                     if self.fm:self.fm.close();self.fm=None
                     self.snap=None;self.clear_candidate_cards();self.selected_candidate=None;self.candidates=[];self.candidate_choice.set('');self.candidate_box.configure(values=[]);self.connection.set('Contexto alterado ou indisponível • sincronize novamente')
                     self.status.set('A observação anterior foi invalidada; identidade não comprovada.')
                 elif self.fm:
-                    try:self.snap=self.fm.snapshot();self.render()
+                    try:
+                        changed=snapshot!=self.snap;self.snap=snapshot
+                        if changed:self.render()
                     except Exception as exc:
                         self.fm.close();self.fm=None;self.snap=None;self.clear_candidate_cards();self.set_actions(False);self.connection.set('Contexto inválido • '+str(exc))
                 else:self.show_observation(observation)
@@ -351,10 +392,18 @@ class App(tk.Tk):
     def apply(self,fn):
         if not self.fm or not self.snap:raise ValueError('Conecte à carreira primeiro.')
         def work():
-            result=fn();return result,self.fm.snapshot()
+            result=fn()
+            try:return result,self.fm.snapshot(),None
+            except Exception as exc:return result,None,str(exc)
         def done(result):
-            entry,self.snap=result;self.render(True);self.refresh_history()
-            self.status.set('Aplicado no FM: '+entry['title']+'. Reabra a página do jogo para atualizar o valor exibido.')
+            entry,self.snap,error=result
+            if error:
+                self.set_actions(False)
+                self.status.set('Alteração aplicada na memória, mas a atualização do painel falhou. Não repita; operação '+entry['id'])
+                messagebox.showwarning('Alteração aplicada',self.status.get(),parent=self)
+                return
+            self.render(True);self.refresh_history()
+            self.status.set('Aplicado na memória do FM. Salve a carreira no jogo para persistir.')
         self.run(work,done)
 
     def guard(self,fn):
@@ -400,6 +449,53 @@ class App(tk.Tk):
                 self.refresh_history();self.snap=self.fm.snapshot();self.render()
             self.status.set('Uniformes patrocinados '+('habilitados no FM' if enable else 'instalados')+': '+names+'. Reabra o clube ou recarregue a skin no FM.')
         self.run(work,done,'Aplicando os patrocinadores e verificando os uniformes…')
+
+    def update_recovery_indicator(self):
+        if self.closed or self.recovery_running:return
+        self.recovery_running=True
+        def work():
+            try:result=recuperacao.scan(native.DATA/'historico')
+            except Exception:
+                result=[recuperacao.Record('','Histórico indisponível','','JOURNAL_UNREADABLE','Indeterminado',None,None,'Falha ao consultar histórico.')]
+            self.events.put(('recovery_indicator',result,None))
+        threading.Thread(target=work,daemon=True).start()
+
+    def open_recovery(self):
+        window=tk.Toplevel(self);window.title('Central de Recuperação')
+        window.geometry('1050x520')
+        self.label(window,'Diagnóstico de operações e arquivos locais',font=('Segoe UI',14,'bold'))
+        self.label(window,'PID não identifica o save. Estados incertos exigem verificação; não repita a operação.',wraplength=980)
+        table=self.table(window,[('time','Data',145),('title','Operação',270),('state','Estado',190),('resource','Recurso',200)],10)
+        status=tk.StringVar(value='Aguardando leitura…');self.label(window,'',textvariable=status,wraplength=980)
+        records=[]
+        def update():
+            if self.busy:
+                status.set('Aguarde a operação atual terminar e atualize o diagnóstico.');return
+            def done(result):
+                if not window.winfo_exists():return
+                records[:]=result
+                self.replace_rows(table,[(str(i),(r.time[:19].replace('T',' '),r.title,r.state,r.resource)) for i,r in enumerate(records)])
+                status.set(f'{len(records)} registros. Selecione um para ver orientações. Nenhuma alteração no FM.')
+            self.run(lambda:recuperacao.scan(native.DATA/'historico'),done,'Lendo diagnóstico de recuperação…')
+        def selected(_event=None):
+            chosen=table.selection()
+            if not chosen:return
+            r=records[int(chosen[0])]
+            status.set((f'Operação {r.operation_id or "não identificada"} • {r.reason} '
+                'Para estado incerto, não repita a operação; verifique a carreira e um backup.'))
+        def export():
+            if self.busy:return
+            path=filedialog.asksaveasfilename(parent=window,title='Exportar diagnóstico',defaultextension='.json',filetypes=[('JSON','*.json')])
+            if not path:return
+            payload={'aviso':'Diagnóstico local; não identifica o save.','operacoes':[r.public() for r in records]}
+            def done(_):
+                if window.winfo_exists():status.set('Diagnóstico exportado.')
+            self.run(lambda:native.save_json(path,payload),done,'Exportando diagnóstico…')
+        table.bind('<<TreeviewSelect>>',selected)
+        row=ttk.Frame(window);row.pack(fill='x',padx=10)
+        ttk.Button(row,text='Atualizar diagnóstico',command=update).pack(side='left',padx=5,pady=8)
+        ttk.Button(row,text='Exportar relatório',command=export).pack(side='left',padx=5,pady=8)
+        self.after(0,update)
 
     def refresh_history(self):
         # Histórico legado não está associado com segurança à carreira atual.

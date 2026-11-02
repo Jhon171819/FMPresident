@@ -26,7 +26,7 @@ class Observation:
     wage: int | None = None
 
     def comparable(self):
-        return (self.process, self.profile, self.candidate_uid, self.candidate_address, self.game_date, self.trainer, self.career)
+        return (self.process, self.profile, self.candidate_uid, self.candidate_address, self.trainer, self.career)
 
 class Coordinator:
     """Gestão de épocas diagnósticas; não contém nem emite autorização."""
@@ -64,7 +64,7 @@ class Coordinator:
             self.closed=True;self.epoch+=1;self.observation=None;self.state=State.DISCONNECTED
 
 
-def observe(selected_address=None):
+def observe(selected_address=None, info=None):
     """Uma observação diagnóstica, com handle exclusivamente de leitura."""
     from datetime import datetime, timezone
     import fm23 as native
@@ -77,7 +77,7 @@ def observe(selected_address=None):
         def __init__(self,pid):
             self.guard=None;self.handle=native.k.OpenProcess(0x410,False,pid)
             if not self.handle:raise OSError('Acesso de leitura ao FM indisponível.')
-    info=native.process_info();reader=Reader(info['pid'])
+    info=info or native.process_info();reader=Reader(info['pid'])
     try:
         guard=compat.BuildGuard(info,native.ProcessProbe(reader,info['base']))
         reader.guard=guard
@@ -129,7 +129,17 @@ def include_candidate(found, candidate, source):
         found[candidate.address]=CandidateOption(candidate.club,candidate.address,source)
 
 
-def search_candidates(max_bytes=1024*1024*1024, max_seconds=20, prefer_cache=True, query=''):
+def matching_club_addresses(data, base, vtable, uid):
+    """Localiza registros do clube suportado; cada endereço ainda exige validação."""
+    import struct
+    needle=struct.pack('<Q',vtable)
+    pos=data.find(needle)
+    while pos>=0:
+        if (base+pos)%8==0 and pos+16<=len(data) and struct.unpack_from('<I',data,pos+12)[0]==uid:
+            yield base+pos
+        pos=data.find(needle,pos+1)
+
+def search_candidates(max_bytes=2*1024*1024*1024, max_seconds=30, prefer_cache=True, query='', info=None):
     """Busca limitada de candidatos; não concede autorização."""
     import struct, time
     import fm23 as native
@@ -143,7 +153,7 @@ def search_candidates(max_bytes=1024*1024*1024, max_seconds=20, prefer_cache=Tru
         def __init__(self,pid):
             self.guard=None;self.handle=native.k.OpenProcess(0x410,False,pid)
             if not self.handle:raise OSError('Acesso de leitura ao FM indisponível.')
-    info=native.process_info();reader=Reader(info['pid'])
+    info=info or native.process_info();reader=Reader(info['pid'])
     try:
         guard=compat.BuildGuard(info,native.ProcessProbe(reader,info['base']));reader.guard=guard
         found={}
@@ -169,10 +179,10 @@ def search_candidates(max_bytes=1024*1024*1024, max_seconds=20, prefer_cache=Tru
             return sorted(filtered,key=lambda c:(c.club.name.casefold(),c.club.uid,c.address)),True
         needle=struct.pack('<Q',info['base']+0x48b7c08);total=0;deadline=time.monotonic()+max_seconds;limited=False
         for base,size in reader.regions():
-            for offset in range(0,size,1024*1024):
+            for offset in range(0,size,4*1024*1024):
                 if total>=max_bytes or time.monotonic()>=deadline or len(found)>=200:
                     limited=True;break
-                n=min(1024*1024,size-offset,max_bytes-total);total+=n
+                n=min(4*1024*1024,size-offset,max_bytes-total);total+=n
                 try:data=reader.read(base+offset,n)
                 except OSError:continue
                 pos=data.find(needle)
@@ -181,6 +191,10 @@ def search_candidates(max_bytes=1024*1024*1024, max_seconds=20, prefer_cache=Tru
                     club=club_from_details(reader,info['base'],address,native.TEAM_VTABLE_RVA)
                     if club:add(club,'vinculo')
                     pos=data.find(needle,pos+1)
+                for address in matching_club_addresses(data,base+offset,info['base']+native.VTABLE_RVA,native.UID):
+                    add(address,'registro')
+                if prefer_cache and any(c.club.uid==native.UID and matches(c) for c in found.values()):
+                    limited=True;break
             if limited:break
         guard.require_fast()
         index.put(info,digest,list(found.values()))
@@ -188,3 +202,9 @@ def search_candidates(max_bytes=1024*1024*1024, max_seconds=20, prefer_cache=Tru
     finally:
         if 'index' in locals():index.close()
         reader.close()
+
+def observe_and_candidates(query=''):
+    """Uma descoberta por solicitação; cada leitor mantém seu BuildGuard completo."""
+    import fm23 as native
+    info=native.process_info()
+    return observe(info=info),search_candidates(query=query,info=info)

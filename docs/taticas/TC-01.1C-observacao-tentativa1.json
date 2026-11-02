@@ -1,0 +1,31 @@
+{
+  "issue": "TC-01.1C",
+  "read_only": true,
+  "save_identity": "UNVERIFIED; nenhum save aberto/trocado pelo script",
+  "limits": {
+    "bytes": 131072,
+    "calls": 256,
+    "seconds": 25,
+    "primary_players": 32,
+    "other_collection_samples": 4
+  },
+  "observed_at_utc": "2026-11-02T14:12:08.729069+00:00",
+  "state": "INCONCLUSIVE",
+  "error": "ValueError: Identidade de carreira inconsistente.",
+  "wall_s": 1.610083699997631,
+  "cpu_s": 1.21875,
+  "phases": {
+    "buildguard_s": 1.5948067999997875
+  },
+  "reader_metrics": {
+    "calls": 16,
+    "bytes": 184,
+    "failures": 0
+  },
+  "process_usage": {
+    "rss": 26185728,
+    "peak_rss": 27533312,
+    "logical_read_bytes": 354895490,
+    "logical_write_bytes": 0
+  }
+}

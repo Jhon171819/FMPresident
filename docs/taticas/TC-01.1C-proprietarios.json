@@ -1,0 +1,104 @@
+{
+  "issue": "TC-01.1C",
+  "read_only": true,
+  "mode": "owners_only",
+  "save_identity": "UNVERIFIED; nenhum save aberto/trocado pelo script",
+  "limits": {
+    "bytes": 131072,
+    "calls": 256,
+    "seconds": 25,
+    "primary_players": 32,
+    "other_collection_samples": 4
+  },
+  "observed_at_utc": "2026-11-02T14:15:22.221803+00:00",
+  "build": "23.2.0+1771058",
+  "fingerprint": "d0c9fb1a66248ee6ae2febf086dbc50b3ad4100ee7ee8d6ec0ee31015ff6b8c1",
+  "context": {
+    "pid": 12620,
+    "started": "639291880258183124",
+    "date": "2032-06-24",
+    "club_uid": 104749,
+    "career_state": "UNVERIFIED",
+    "manual_approval": "Não solicitada: somente diagnóstico; nenhuma autorização operacional emitida",
+    "epoch": 1
+  },
+  "state": "OBSERVED_UNVERIFIED",
+  "collections": [
+    {
+      "offset": "0x38",
+      "entries": 48,
+      "types": {},
+      "actual_players": null,
+      "owner_candidate": {
+        "relative_base": "0x0",
+        "vtable_rva": "0x5002398",
+        "club_uid": 104749,
+        "club_name": "Ceará Sporting Club"
+      }
+    },
+    {
+      "offset": "0xf0",
+      "entries": 30,
+      "types": {},
+      "actual_players": null,
+      "owner_candidate": {
+        "relative_base": "0xb8",
+        "vtable_rva": "0x5002398",
+        "club_uid": 104750,
+        "club_name": "Fortaleza Esporte Clube"
+      }
+    },
+    {
+      "offset": "0x1a8",
+      "entries": 37,
+      "types": {},
+      "actual_players": null,
+      "owner_candidate": {
+        "relative_base": "0x170",
+        "vtable_rva": "0x5002398",
+        "club_uid": 104775,
+        "club_name": "Bangu Atlético Clube"
+      }
+    }
+  ],
+  "samples": [],
+  "overlaps": [
+    {
+      "a": "0x38",
+      "b": "0xf0",
+      "count": 0
+    },
+    {
+      "a": "0x38",
+      "b": "0x1a8",
+      "count": 0
+    },
+    {
+      "a": "0xf0",
+      "b": "0x1a8",
+      "count": 0
+    }
+  ],
+  "snapshot_metrics": {
+    "calls": 26,
+    "bytes": 364,
+    "failures": 0,
+    "hits": 2
+  },
+  "wall_s": 1.5680483000032837,
+  "cpu_s": 1.34375,
+  "phases": {
+    "buildguard_s": 1.4855442000116454
+  },
+  "reader_metrics": {
+    "calls": 55,
+    "bytes": 636,
+    "failures": 0
+  },
+  "process_usage": {
+    "rss": 26152960,
+    "peak_rss": 27484160,
+    "logical_read_bytes": 354960100,
+    "logical_write_bytes": 0
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "environment": "Windows 11 x64 / Python 3.14 / synthetic no FM",
+  "qt": {
+    "n": 10,
+    "median_ms": 104.329,
+    "p95_ms": 172.705,
+    "min_ms": 76.605,
+    "max_ms": 286.307
+  },
+  "tkinter": {
+    "n": 10,
+    "median_ms": 2310.867,
+    "p95_ms": 5975.518,
+    "min_ms": 1120.336,
+    "max_ms": 7810.602
+  },
+  "note": "Janelas instanciadas sem conexão FM; não mede sincronização, leitura de memória, primeira pintura nativa, CPU ou memória de carreira."
+}

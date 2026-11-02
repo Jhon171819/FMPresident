@@ -1,0 +1,10 @@
+{
+  "cenario": "Qt offscreen, snapshot sint\u00e9tico; n\u00e3o compara com Tk",
+  "troca_pagina_ms": {
+    "n": 20,
+    "mediana": 11.320149998937268,
+    "min": 7.161599998653401,
+    "max": 36.28230000322219,
+    "p95": 27.60639999905834
+  }
+}

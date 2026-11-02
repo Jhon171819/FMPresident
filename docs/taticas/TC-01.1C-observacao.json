@@ -1,0 +1,887 @@
+{
+  "issue": "TC-01.1C",
+  "read_only": true,
+  "save_identity": "UNVERIFIED; nenhum save aberto/trocado pelo script",
+  "limits": {
+    "bytes": 131072,
+    "calls": 256,
+    "seconds": 25,
+    "primary_players": 32,
+    "other_collection_samples": 4
+  },
+  "observed_at_utc": "2026-11-02T14:12:36.809319+00:00",
+  "build": "23.2.0+1771058",
+  "fingerprint": "d0c9fb1a66248ee6ae2febf086dbc50b3ad4100ee7ee8d6ec0ee31015ff6b8c1",
+  "context": {
+    "pid": 12620,
+    "started": "639291880258183124",
+    "date": "2032-06-24",
+    "club_uid": 104749,
+    "career_state": "UNVERIFIED",
+    "manual_approval": "Não solicitada: somente diagnóstico; nenhuma autorização operacional emitida",
+    "epoch": 1
+  },
+  "state": "OBSERVED_UNVERIFIED",
+  "collections": [
+    {
+      "offset": "0x38",
+      "entries": 48,
+      "types": {
+        "0x5006e68": 18,
+        "0x4fd7a28": 29,
+        "0x4fd9a18": 1
+      },
+      "actual_players": 29
+    },
+    {
+      "offset": "0xf0",
+      "entries": 30,
+      "types": {
+        "0x5006e68": 3,
+        "0x4fd7a28": 26,
+        "0x4fd9a18": 1
+      },
+      "actual_players": 26
+    },
+    {
+      "offset": "0x1a8",
+      "entries": 37,
+      "types": {
+        "0x5006e68": 14,
+        "0x4fd7a28": 22,
+        "0x4fd9a18": 1
+      },
+      "actual_players": 22
+    }
+  ],
+  "samples": [
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "1999-04-24",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 0,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2007-09-17",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 1,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2007-06-26",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 2,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2000-03-29",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": false,
+      "collection": "0x38",
+      "index": 3,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2008-01-10",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 4,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "TEXT_CANDIDATE",
+      "name": "Claudio Jeremías Echeverri",
+      "birth_candidate": "2006-01-02",
+      "uid": null,
+      "confidence": "HYPOTHESIS",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 5,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2010-10-22",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": false,
+      "collection": "0x38",
+      "index": 6,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2006-07-25",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 7,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2006-07-26",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": false,
+      "collection": "0x38",
+      "index": 8,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2006-09-04",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 9,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2012-01-19",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 10,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2001-03-03",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 11,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2009-02-20",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 12,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2007-01-14",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 13,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2009-04-23",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": false,
+      "team_138_matches": false,
+      "collection": "0x38",
+      "index": 14,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ],
+      "other_team_club_uid": 1181
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2009-05-17",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": false,
+      "team_138_matches": false,
+      "collection": "0x38",
+      "index": 15,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ],
+      "other_team_club_uid": 102555
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2007-08-29",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": false,
+      "collection": "0x38",
+      "index": 16,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2006-11-05",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 17,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2011-03-31",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 18,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2007-03-12",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 19,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2001-05-30",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": false,
+      "team_138_matches": false,
+      "collection": "0x38",
+      "index": 20,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ],
+      "other_team_club_uid": 335
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2007-12-18",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": false,
+      "team_138_matches": false,
+      "collection": "0x38",
+      "index": 21,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ],
+      "other_team_club_uid": 316
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2002-05-16",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 22,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2008-05-02",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 23,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2007-05-11",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 24,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2008-01-19",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 25,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2006-01-14",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 26,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2008-03-17",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 27,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2012-08-28",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": true,
+      "team_138_matches": true,
+      "collection": "0x38",
+      "index": 28,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ]
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2001-09-30",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": false,
+      "team_138_matches": false,
+      "collection": "0xf0",
+      "index": 0,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ],
+      "other_team_club_uid": 104750
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "1999-08-21",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": false,
+      "team_138_matches": false,
+      "collection": "0xf0",
+      "index": 1,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ],
+      "other_team_club_uid": 104750
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2004-06-17",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": false,
+      "team_138_matches": false,
+      "collection": "0xf0",
+      "index": 2,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ],
+      "other_team_club_uid": 104750
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2006-05-08",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": false,
+      "team_138_matches": false,
+      "collection": "0xf0",
+      "index": 3,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ],
+      "other_team_club_uid": 104750
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2001-02-26",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": false,
+      "team_138_matches": false,
+      "collection": "0x1a8",
+      "index": 0,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ],
+      "other_team_club_uid": 104775
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "2001-02-27",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": false,
+      "team_138_matches": false,
+      "collection": "0x1a8",
+      "index": 1,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ],
+      "other_team_club_uid": 104775
+    },
+    {
+      "name_status": "TEXT_CANDIDATE",
+      "name": "Fernando Nava Ortega",
+      "birth_candidate": "2004-06-08",
+      "uid": null,
+      "confidence": "HYPOTHESIS",
+      "team_130_matches": false,
+      "team_138_matches": false,
+      "collection": "0x1a8",
+      "index": 2,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ],
+      "other_team_club_uid": 104775
+    },
+    {
+      "name_status": "ABSENT_TEXT",
+      "name": null,
+      "birth_candidate": "1999-06-17",
+      "uid": null,
+      "confidence": "INCONCLUSIVE",
+      "team_130_matches": false,
+      "team_138_matches": false,
+      "collection": "0x1a8",
+      "index": 3,
+      "subobject_words": {
+        "0x270": "0x4fd7f88",
+        "0x298": "0x4fd7f38"
+      },
+      "vbtable_candidate": [
+        -8,
+        616,
+        656,
+        1157466352
+      ],
+      "other_team_club_uid": 104775
+    }
+  ],
+  "overlaps": [
+    {
+      "a": "0x38",
+      "b": "0xf0",
+      "count": 0
+    },
+    {
+      "a": "0x38",
+      "b": "0x1a8",
+      "count": 0
+    },
+    {
+      "a": "0xf0",
+      "b": "0x1a8",
+      "count": 0
+    }
+  ],
+  "snapshot_metrics": {
+    "calls": 192,
+    "bytes": 28416,
+    "failures": 0,
+    "hits": 60
+  },
+  "wall_s": 1.7511946999875363,
+  "cpu_s": 1.59375,
+  "phases": {
+    "buildguard_s": 1.3610432999994373
+  },
+  "reader_metrics": {
+    "calls": 221,
+    "bytes": 28688,
+    "failures": 0
+  },
+  "process_usage": {
+    "rss": 26406912,
+    "peak_rss": 27701248,
+    "logical_read_bytes": 354958524,
+    "logical_write_bytes": 0
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "process_info_powershell": {
+    "n": 20,
+    "first_ms": 1897.651,
+    "median_ms": 523.0857,
+    "p95_ms": 1921.7092,
+    "min_ms": 455.0853,
+    "max_ms": 2639.5238
+  },
+  "process_info": {
+    "n": 20,
+    "first_ms": 45.1122,
+    "median_ms": 7.61985,
+    "p95_ms": 8.8926,
+    "min_ms": 7.0161,
+    "max_ms": 45.1122
+  }
+}

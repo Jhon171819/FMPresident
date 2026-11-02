@@ -76,7 +76,7 @@ def check():
     m.put(0xa050, struct.pack('<I',64))
     m.put(0x20000, struct.pack('<Q',0x20040))
     m.put(0x20040, struct.pack('<Q',0x20080))
-    original_idle, original_data = e._ensure_idle, native.DATA
+    original_idle, original_data, original_guard = e._ensure_idle, native.DATA, e._require_pool_allocation_proven
     e._ensure_idle = lambda fm: None
     snapshot = dict(date='2032-04-12', credit=dict(rate=13.75,reputation=6500))
     with tempfile.TemporaryDirectory() as folder:
@@ -84,6 +84,12 @@ def check():
         try:
             baseline = dict(m.data)
             q = e.offer(snapshot,100_000,24,1)
+            try:e.sign(fm,q)
+            except ValueError as error:assert 'indisponível' in str(error)
+            else:raise AssertionError('Alocação sem evidência foi permitida')
+            assert m.data == baseline
+            # Exercita o planejador antigo exclusivamente na memória simulada.
+            e._require_pool_allocation_proven = lambda *args: None
             assert q['counter'] and q['rate'] == q['minimum_rate']
             assert (q['first'],q['end']) == ('2032-05-01','2034-04-01')
             m.fail = fm.finance+0x544
@@ -106,16 +112,23 @@ def check():
             assert len(fm.debt_rows()) == 1 and m.number(fm.finance+20) == 2_100_000
             assert fm.debt_rows()[0]['monthly'] == r['monthly']
             fm.undo(refinanced)
+            before_second = dict(m.data)
             second = e.sign(fm,q)
             assert len(fm.debt_rows()) == 2
             assert len({r['addr'] for r in fm.debt_rows()}) == 2
-            fm.undo(second)
+            try:fm.undo(second)
+            except ValueError:pass
+            else:raise AssertionError('Desfazer de pool sem propriedade foi permitido')
+            m.data = before_second  # Apenas restauração da fixture sintética.
             repaid = fm.repay(0, fm.debt_rows()[0]['raw'])
             assert fm.debt_rows()[0]['original'] == 0
             assert m.number(fm.finance+20) == 2_000_000
             assert m.number(fm.finance+0x284) == 100_000
             fm.undo(repaid)
-            fm.undo(entry)
+            try:fm.undo(entry)
+            except ValueError:pass
+            else:raise AssertionError('Desfazer de pool sem propriedade foi permitido')
+            m.data = baseline  # Apenas restauração da fixture sintética.
             assert m.data == baseline and m.depth == 0
             changed = dict(q,date='2032-04-11')
             try:
@@ -125,7 +138,7 @@ def check():
             else:
                 raise AssertionError('Proposta de outro dia aceita')
         finally:
-            e._ensure_idle, native.DATA = original_idle, original_data
+            e._ensure_idle, native.DATA, e._require_pool_allocation_proven = original_idle, original_data, original_guard
     print('OK: proposta e contraproposta, parcelas, reserva nativa, criação, crédito contábil, renegociação, quitação, undo, rollback e proposta vencida.')
 
 

@@ -1,0 +1,9 @@
+[
+  {"id":"UI-01","description":"Painel e política compartilham CLIENT_TACTIC e tabela na sessão observada","status":"OBSERVED","source":"docs/testes/2026-11-02-tc011-tela-tatica.md"},
+  {"id":"META-01","description":"Metadado 0x64726566 participa da conversão; ligação final ao atleta pendente","status":"PARTIAL","source":"docs/taticas/TC-01.1B-classes.md"},
+  {"id":"NAME-01","description":"Nome e nascimento de um candidato Echeverri coincidem com o perfil visual","status":"PARTIAL","source":"docs/taticas/TC-01.1B-identificacao-atletas.md"},
+  {"id":"UID-01","description":"UID confiável ainda não identificado","status":"INCONCLUSIVE","source":"docs/taticas/TC-01.1B-identificacao-atletas.md"},
+  {"id":"COLLECTIONS-01","description":"Semântica das três coleções TEAM não comprovada","status":"INCONCLUSIVE","source":"docs/taticas/TC-01.1B-colecoes.md"},
+  {"id":"TEAM-01","description":"Interpretação universal de +0x130 como equipe da coleção refutada por quatro divergentes","status":"REFUTED","source":"docs/taticas/TC-01.1B-colecoes.md"},
+  {"id":"TEXT-01","description":"Todo texto imprimível ser nome foi refutado por falsos candidatos","status":"REFUTED","source":"docs/taticas/TC-01.1B-evidencias.md"}
+]

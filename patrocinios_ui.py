@@ -256,7 +256,7 @@ class SponsorsPanel:
         engine.log(session,'Sistema','Contrato assinado e verificado no FM. Os recebimentos regulares pertencem ao calendário do jogo.',session['offer'])
         # O journal nativo já contém os termos; uma falha de arquivo pode ser
         # recuperada depois, conferindo os dados efetivamente existentes no FM.
-        native.save_json(self.app_state_path(),self.app.store);self.save();self.app.refresh_history()
+        native.save_json(self.app_state_path(),self.app.store);self.save();native.finalize_local_commit(entry);self.app.refresh_history()
         try:self.app.snap=self.app.fm.snapshot();self.app.render();self.app.check_kit()
         except (ValueError,OSError):self.app.status.set('O contrato foi gravado. Reconecte para atualizar a leitura do FM.')
         self.fill_sessions();self.load_session()
@@ -289,7 +289,7 @@ class SponsorsPanel:
         self.snap=snapshot
         mode=snapshot.get('licensed_kits')
         self.kit_mode.set('Modo no FM: '+('imagens patrocinadas' if mode else 'estilo do editor') if mode is not None else 'Modo do uniforme indisponível nesta leitura.')
-        self.recover()
+        # A coincidência de valores não prova associação à carreira atual.
         restored=False
         for row in snapshot['sponsors']:
             deal=self.match_deal(row)
@@ -336,7 +336,7 @@ class SponsorsPanel:
             if not messagebox.askyesno('Rescindir contrato',f"Encerrar o patrocínio de {c['company']['name']}?\n\nA receita será zerada no FM e a multa de {engine.money(fee)} será descontada do caixa.\nO app também atualizará os uniformes associados.",parent=self.app):return
             fm=self.app.fm
             def done(entry):
-                c['status']='terminated';c['termination']=entry['id'];c['termination_date']=today;c['native_index']=row['index'];native.save_json(self.app_state_path(),self.app.store)
+                c['status']='terminated';c['termination']=entry['id'];c['termination_date']=today;c['native_index']=row['index'];native.save_json(self.app_state_path(),self.app.store);native.finalize_local_commit(entry)
                 self.app.refresh_history();self.app.snap=fm.snapshot();self.app.render();self.app.check_kit()
                 self.app.status.set('Contrato encerrado no FM. Multa debitada: '+engine.money(fee)+'.')
             self.app.run(lambda:fm.terminate_sponsor(row['index'],row['raw'],fee,today,{'sponsor_termination':c.get('transaction'),'company':c['company']['name']}),done,'Encerrando receita e aplicando a multa no caixa…')

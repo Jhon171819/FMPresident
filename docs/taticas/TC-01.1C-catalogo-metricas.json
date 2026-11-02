@@ -1,0 +1,88 @@
+{
+  "export_s": 0.14672679999785032,
+  "export_cpu_s": 0.03125,
+  "stories": 11,
+  "queries": {
+    "ACTUAL_PLAYER": {
+      "wall_s": 0.0005600000004051253,
+      "matches": [
+        "ST-01",
+        "ST-02",
+        "ST-03",
+        "ST-04",
+        "ST-05",
+        "ST-11"
+      ]
+    },
+    "0x2B8": {
+      "wall_s": 0.0001990000018849969,
+      "matches": [
+        "ST-03",
+        "ST-04",
+        "ST-11"
+      ]
+    },
+    "0x3A88400": {
+      "wall_s": 0.00015929999062791467,
+      "matches": [
+        "ST-05",
+        "ST-06",
+        "ST-07"
+      ]
+    }
+  },
+  "categories": [
+    {
+      "category": "classes",
+      "count": 1
+    },
+    {
+      "category": "collections",
+      "count": 1
+    },
+    {
+      "category": "engine_limits",
+      "count": 1
+    },
+    {
+      "category": "functions",
+      "count": 1
+    },
+    {
+      "category": "metadata",
+      "count": 1
+    },
+    {
+      "category": "player_identity",
+      "count": 3
+    },
+    {
+      "category": "relations",
+      "count": 2
+    },
+    {
+      "category": "ui",
+      "count": 1
+    }
+  ],
+  "states": [
+    {
+      "status": "INCONCLUSIVE",
+      "count": 1
+    },
+    {
+      "status": "OBSERVED",
+      "count": 1
+    },
+    {
+      "status": "PARTIAL",
+      "count": 9
+    }
+  ],
+  "process_usage": {
+    "rss": 24653824,
+    "peak_rss": 24653824,
+    "logical_read_bytes": 8003062,
+    "logical_write_bytes": 1178801
+  }
+}
